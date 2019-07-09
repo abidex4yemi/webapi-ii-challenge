@@ -7,9 +7,11 @@ import { validate } from '../validate';
 const postSchema = Joi.object().keys({
 	title: Joi.string()
 		.min(3)
+		.trim()
 		.required(),
 	contents: Joi.string()
 		.min(5)
+		.trim()
 		.required()
 });
 

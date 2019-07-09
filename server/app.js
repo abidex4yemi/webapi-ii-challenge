@@ -21,6 +21,15 @@ const app = express();
 // parses application/json && parses url encoded
 app.use(express.json());
 
+// Handle invalid json object
+app.use((err, req, res, next) => {
+	if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+		return res.sendStatus(400);
+	}
+
+	next();
+});
+
 // Enable cross origin resource sharing
 // Note: this allows request from other site
 app.use(cors());
@@ -46,13 +55,6 @@ app.all('*', (request, response) => {
 		success: false,
 		message: 'Route does not exist...',
 		body: []
-	});
-});
-
-// Handle core sever error
-app.use((request, response, error) => {
-	return response.status(error.status || 500).json({
-		error
 	});
 });
 
