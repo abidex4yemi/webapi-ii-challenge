@@ -8,3 +8,4 @@ export { updatePost } from './updatePost';
 export { deletePost } from './deletePost';
 export { getPostComments } from './getPostComments';
 export { getCommentById } from './getCommentById';
+export { addComment } from './addComment';

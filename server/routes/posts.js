@@ -9,9 +9,10 @@ import {
 	updatePost,
 	deletePost,
 	getPostComments,
-	getCommentById
+	getCommentById,
+	addComment
 } from '../controllers/posts';
-import { validatePost } from '../helpers/validation';
+import { validatePost, validateComment } from '../helpers/validation';
 
 // Initializes express.Router instance
 const Router = express.Router();
@@ -40,5 +41,8 @@ Router.get('/posts/:id/comments', getPostComments);
 
 // [GET] Handle get comment by id
 Router.get('/comments/:id', getCommentById);
+
+// [GET] Handle add new comment by post id
+Router.post('/comments', validateComment, addComment);
 
 export { Router as postsRouter };
