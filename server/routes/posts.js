@@ -2,7 +2,7 @@
  * Module dependencies
  */
 import express from 'express';
-import { getPosts, getPostById, addPost, updatePost, deletePost } from '../controllers/posts';
+import { getPosts, getPostById, addPost, updatePost, deletePost, getPostComments } from '../controllers/posts';
 import { validatePost } from '../helpers/validation';
 
 // Initializes express.Router instance
@@ -26,5 +26,8 @@ Router.put('/posts/:id', validatePost, updatePost);
 
 // [DELETE] Handle delete post request
 Router.delete('/posts/:id', deletePost);
+
+// [GET] Handle get all comments by post id
+Router.get('/posts/:id/comments', getPostComments);
 
 export { Router as postsRouter };
