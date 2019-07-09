@@ -2,7 +2,7 @@
  * Module dependencies
  */
 import express from 'express';
-import { getPosts } from '../controllers/posts';
+import { getPosts, getPostById } from '../controllers/posts';
 
 // Initializes express.Router instance
 const Router = express.Router();
@@ -13,5 +13,8 @@ const Router = express.Router();
 
 // [Get] Handle get all posts request
 Router.get('/posts', getPosts);
+
+// [GET] Handle get post by id
+Router.get('/posts/:id', getPostById);
 
 export { Router as postsRouter };
