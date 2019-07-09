@@ -22,7 +22,10 @@ app.use(express.json());
 
 // Enable cross origin resource sharing
 // Note: this allows request from other site
-app.use(express.cors());
+app.use(cors());
+
+// log all http request
+app.use(logger('dev'));
 
 // [GET] Handle home route request
 app.get('/', (request, response) => {
@@ -30,6 +33,22 @@ app.get('/', (request, response) => {
 		success: true,
 		message: 'Welcome to JamJam blog',
 		body: []
+	});
+});
+
+// [all] Handle invalid request
+app.all('*', (request, response) => {
+	return response.status(404).json({
+		success: false,
+		message: 'Route does not exist...',
+		body: []
+	});
+});
+
+// Handle core sever error
+app.use((request, response, error) => {
+	return response.status(error.status || 500).json({
+		error
 	});
 });
 
