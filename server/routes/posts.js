@@ -2,7 +2,7 @@
  * Module dependencies
  */
 import express from 'express';
-import { getPosts, getPostById, addPost } from '../controllers/posts';
+import { getPosts, getPostById, addPost, updatePost } from '../controllers/posts';
 import { validatePost } from '../helpers/validation';
 
 // Initializes express.Router instance
@@ -18,6 +18,10 @@ Router.get('/posts', getPosts);
 // [GET] Handle get post by id
 Router.get('/posts/:id', getPostById);
 
+// [POST] Handle create new post request
 Router.post('/posts', validatePost, addPost);
+
+// [PUT] Handle update existing post record
+Router.put('/posts/:id', validatePost, updatePost);
 
 export { Router as postsRouter };

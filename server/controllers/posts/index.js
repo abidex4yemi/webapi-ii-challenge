@@ -4,3 +4,4 @@
 export { getPosts } from './getPost';
 export { getPostById } from './getPostById';
 export { addPost } from './addPost';
+export { updatePost } from './updatePost';
