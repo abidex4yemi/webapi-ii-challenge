@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "LambdaSchool Node.js and Express",
   "private": true,
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "server": "nodemon app.js"
   },
   "dependencies": {
     "knex": "^0.16.5",
