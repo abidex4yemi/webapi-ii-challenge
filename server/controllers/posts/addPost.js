@@ -12,7 +12,7 @@ import db from '../../models/db';
 export const addPost = async (request, response, next) => {
 	try {
 		// Get post from request body
-		const post = request.body;
+		const post = request.body.sanitizedBody;
 
 		// Insert new post
 		const { id } = await db.insert(post);
