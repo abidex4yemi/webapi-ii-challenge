@@ -5,7 +5,9 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "server": "nodemon app.js"
+    "server": "babel-node app.js",
+    "dev": "NODE_ENV=development npm-run-all server",
+    "watch": "nodemon"
   },
   "dependencies": {
     "@hapi/joi": "^15.1.0",
@@ -15,6 +17,12 @@
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.18.11",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "morgan": "~1.9.0",
+    "npm-run-all": "^4.1.5"
   }
 }
