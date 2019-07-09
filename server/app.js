@@ -4,6 +4,7 @@
 import express from 'express';
 import logger from 'morgan';
 import cors from 'cors';
+import { postsRouter } from './routes/posts';
 
 /**
  * Module constants
@@ -26,6 +27,9 @@ app.use(cors());
 
 // log all http request
 app.use(logger('dev'));
+
+// Handle all request on [posts]
+app.use('/api/v1', postsRouter);
 
 // [GET] Handle home route request
 app.get('/', (request, response) => {

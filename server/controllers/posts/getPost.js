@@ -3,7 +3,14 @@
  */
 import db from '../../models/db';
 
-export const getPosts = async (request, response) => {
+/**
+ * Return all posts
+ * 
+ * @param {object} request 
+ * @param {object} response 
+ * @param {object} next 
+ */
+export const getPosts = async (request, response, next) => {
 	try {
 		// fetch all posts
 		const posts = await db.find();
